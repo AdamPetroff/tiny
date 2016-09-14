@@ -1,0 +1,14 @@
+{block content}
+    <h1>Article</h1>
+    <img n:ifset="$item->img" height="200px" width="auto" src="{$basePath}/images/articles/{$item->id}/{$item->img}"/>
+    <br/>
+    <br/>
+    {control editForm}
+    <script>
+        $(function () {
+            $('[name="text"]').froalaEditor({
+                heightMin: 200
+            });
+        })
+    </script>
+{/block}

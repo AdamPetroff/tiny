@@ -1,0 +1,32 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+parameters:
+
+
+php:
+	date.timezone: Europe/Prague
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+services:
+	- App\Forms\FormFactory
+	- App\Forms\SignFormFactory
+	- App\Forms\RegisterFormFactory
+	- App\Forms\EditProfileFormFactory
+	- App\Forms\ArticleFormFactory
+	- App\Model\Users
+	- App\Model\Articles
+
+	router: App\RouterFactory::createRouter
+	authenticator: App\Model\UserManager

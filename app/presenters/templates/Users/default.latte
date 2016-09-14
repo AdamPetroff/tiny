@@ -1,0 +1,21 @@
+{block title}Home{/block}
+{block content}
+	<h1>Users table</h1>
+	<a n:href="Users:newUser" class="btn btn-primary">New user</a>
+	<br/>
+	<br/>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Username</th>
+			<th>Registered</th>
+		</tr>
+		{foreach $users as $item}
+			<tr>
+				<td>{$item->id}</td>
+				<td>{$item->username}</td>
+				<td>{$item->created_at|date:'%d.%m.%Y %H:%M'}</td>
+			</tr>
+		{/foreach}
+	</table>
+{/block}

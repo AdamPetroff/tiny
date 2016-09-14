@@ -1,0 +1,7 @@
+{block content}
+    <h1 n:block="title">{$item->name}</h1>
+    <img n:ifset="$item->img" height="auto" width="60%" src="{$basePath}/images/articles/{$item->id}/{$item->img}"/>
+    <br/>
+    <br/>
+    {$item->text|noescape}
+{/block}

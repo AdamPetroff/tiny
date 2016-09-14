@@ -1,0 +1,33 @@
+{block content}
+    <h1 n:block="title">Articles</h1>
+    <a class="btn btn-primary" n:href="Articles:edit">New Article</a>
+    {snippet}
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Perex</th>
+                <th>Only for logged in users</th>
+                <th>Created at</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr n:foreach="$articles as $article">
+                <td><img n:ifset="$article->img" height="50px" width="auto" src="{$basePath}/images/articles/{$article->id}/{$article->img}"/></td>
+                <td>{$article->id}</td>
+                <td>{$article->name}</td>
+                <td>{$article->perex|noescape}</td>
+                <td>{$article->logged_in_only ? 'true' : 'false'}</td>
+                <td>{$article->created_at|date: 'd. m. Y H:i'}</td>
+                <td>
+                    <a class="btn btn-primary btn-xs" n:href="edit $article->id">Edit</a>
+                    <a class="btn btn-danger btn-xs" n:href="deleteArticle! $article->id">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {/snippet}
+{/block}

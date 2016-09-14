@@ -1,0 +1,16 @@
+{block content}
+    <h1>Best page ever!</h1>
+    {foreach $articles as $article}
+        <div class="row" style="margin:10px;">
+            <a n:href="detail $article->id">
+                <div class="col-sm-3">
+                    <img n:ifset="$article->img" width="100%" height="auto" alt="{$article->name}" src="{$basePath}/images/articles/{$article->id}/{$article->img}">
+                </div>
+                <div class="col-sm-9">
+                    <h2>{$article->name}</h2>
+                    <p>{$article->perex|noescape}</p>
+                </div>
+            </a>
+        </div>
+    {/foreach}
+{/block}
