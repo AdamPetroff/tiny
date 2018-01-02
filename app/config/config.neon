@@ -3,8 +3,6 @@
 # https://nette.org/security-warning
 #
 #parameters:
-
-
 php:
 	date.timezone: Europe/Prague
 
